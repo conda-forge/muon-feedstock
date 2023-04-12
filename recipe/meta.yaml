@@ -31,7 +31,8 @@ requirements:
     - umap-learn
     - tqdm
     - mudata
-    - loompy
+    - numba
+    - natsort
     - protobuf
     - python >=3.6
 
