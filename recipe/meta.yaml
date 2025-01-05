@@ -10,14 +10,14 @@ source:
   sha256: dd086bb236fd23563deac498aa51524707fcedecd55af1d67774ef4b26559317
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - flit-core >=2,<4
   run:
     - numpy
@@ -34,9 +34,11 @@ requirements:
     - numba
     - natsort
     - protobuf
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - muon
 
