@@ -1,5 +1,5 @@
 {% set name = "muon" %}
-{% set version = "0.1.6" %}
+{% set version = "0.1.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/scverse/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: dd086bb236fd23563deac498aa51524707fcedecd55af1d67774ef4b26559317
+  sha256: 48159c52aa5dac930fc971ce76275797aecbc7ed1d74e832e0aa09a871a64f33
 
 build:
   number: 1
