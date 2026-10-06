@@ -7,8 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/muon-{{ version }}.tar.gz
-  sha256: a1f444d26ce39b9967f69eb5068b1838df7d1249dbadcb096fedf274f2e82c01
+  # url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/muon-{{ version }}.tar.gz
+  # sha256: a1f444d26ce39b9967f69eb5068b1838df7d1249dbadcb096fedf274f2e82c01
+  git_url: https://github.com/scverse/muon.git
+  git_rev: v{{ version }}
+  git_depth: 0
 
 build:
   number: 0
