@@ -1,3 +1,4 @@
+{% set python_min = "3.12" %}
 {% set name = "muon" %}
 {% set version = "0.2.0" %}
 
@@ -17,24 +18,26 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
-    - flit-core >=2,<4
+    - python {{ python_min }}
+    - hatchling
+    - hatch-vcs
   run:
-    - numpy
-    - pandas
-    - matplotlib-base
-    - seaborn
-    - h5py
     - anndata
-    - scanpy
-    - scikit-learn
-    - umap-learn
-    - tqdm
+    - h5py
+    - matplotlib-base
     - mudata
     - numba
-    - natsort
+    - numpy
+    - pandas >=1
     - protobuf
-    - python >=3.6
+    - scanpy
+    - scikit-learn
+    - scverse-misc >=0.1.1
+    - seaborn
+    - session-info2
+    - umap-learn
+    - tqdm
+    - python >={{ python_min }}
 
 test:
   imports:
