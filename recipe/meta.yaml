@@ -1,13 +1,17 @@
+{% set python_min = "3.12" %}
 {% set name = "muon" %}
-{% set version = "0.1.9" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/scverse/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 58df8a2adee97cd3890df82768756a33636b36be27438b746ec534c918211ea1
+  # url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/muon-{{ version }}.tar.gz
+  # sha256: a1f444d26ce39b9967f69eb5068b1838df7d1249dbadcb096fedf274f2e82c01
+  git_url: https://github.com/scverse/muon.git
+  git_rev: v{{ version }}
+  git_depth: 0
 
 build:
   number: 0
@@ -17,28 +21,35 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
-    - flit-core >=2,<4
+    - python {{ python_min }}
+    - hatchling
+    - hatch-vcs
   run:
-    - numpy
-    - pandas
-    - matplotlib-base
-    - seaborn
-    - h5py
     - anndata
-    - scanpy
-    - scikit-learn
-    - umap-learn
-    - tqdm
+    - h5py
+    - matplotlib-base
     - mudata
     - numba
-    - natsort
+    - numpy
+    - pandas >=1
     - protobuf
-    - python >=3.6
+    - scanpy
+    - scikit-learn
+    - scverse-misc >=0.1.1
+    - seaborn
+    - session-info2
+    - umap-learn
+    - tqdm
+    - python >={{ python_min }}
 
 test:
   imports:
     - muon
+  commands:
+    - pip check
+  requires:
+    - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/scverse/muon
