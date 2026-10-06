@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/scverse/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/muon-{{ version }}.tar.gz
   sha256: a1f444d26ce39b9967f69eb5068b1838df7d1249dbadcb096fedf274f2e82c01
 
 build:
@@ -42,6 +42,11 @@ requirements:
 test:
   imports:
     - muon
+  commands:
+    - pip check
+  requires:
+    - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/scverse/muon
